@@ -14,13 +14,13 @@ jobs:
           python-version: '3.x'
       - uses: iterative/setup-cml@v1
       - name: Train model
-        run:
+        run: |
           pip install -r requirements.txt
           python train.py
       - name: Generate Report
         env:
             REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run:
+        run: |
           echo "## MODEL METRICS" > report.md
           cat metrics.txt >> report.md
 
